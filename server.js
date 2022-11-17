@@ -1,9 +1,7 @@
 const express = require("express");
 const app = express();
 require('dotenv').config()
-console.log(process.env) // remove this after you've confirmed it is working
 
-// TODO establish connection with Postgres db before spinning up the server
 const knex = require('knex')({
   client: process.env.DB_CLIENT,
   connection: {
@@ -14,8 +12,6 @@ const knex = require('knex')({
     database: process.env.DB_DATABASE
   }
 });
-
-console.log(knex);
 
 // GET response to web root
 app.get("/", (_req, res) => {
