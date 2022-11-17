@@ -23,6 +23,8 @@ app.get("/403", (_req, res) => {
  * TODO move the separate groups into router files as organized
  */
 
+// ***** USER ROUTES ***** 
+
 // POST request - create new user
 app.post("/user/create", (_req, res) => {
   res.send("Received POST request to create new user.");
@@ -64,19 +66,53 @@ app.put("/user/:username/update", (req, res) => {
   res.send(`Received PUT request to update user ${username}`);
 });
 
+// PUT request - update user
 app.put("/user/:id/update", (req, res) => {
   const id = req.params.id;
   res.send(`Received PUT request to update user #${id}`);
 });
 
+// DELETE request - delete user
 app.delete("/user/:id", (req, res) => {
   const id = req.params.id;
   res.send(`Received delete request for user #${id}`);
 });
 
+// DELETE request - delete user
 app.delete("/user/:username", (req, res) => {
   const username = req.params.username;
   res.send(`Received delete request for user ${username}.`);
+});
+
+// ***** POST (COMMENT) ROUTES *****
+
+// POST request - create comment
+app.post("/post/create", (_req, res) => {
+  res.send(`Received POST request to create a new comment.`);
+});
+
+// GET request - fetch all posts
+// TODO add limiter (/posts?limit=X) so this doesn't crash the site
+app.get("/posts/all", (_req, res) => {
+  res.send(`Received GET request to fetch all posts.`);
+});
+
+// GET request - fetch post by ID
+app.get("/post/:id", (_req, res) => {
+  const id = req.params.id;
+  res.send(`Received GET request to fetch post #${id}`);
+});
+
+// PUT request - update post by ID
+app.put("/post/:id", (_eq, res) => {
+  const id = req.params.id;
+  res.send(`Received PUT request to update post #${id}`);
+});
+
+// DELETE request - delete post by ID
+app.delete("/post/:id", (req, res) => {
+  const id = req.params.id;
+  res.send(`Received DELETE request for post #${id}`);
 });
 
 // Spin up the server
