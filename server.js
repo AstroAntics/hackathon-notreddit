@@ -115,6 +115,31 @@ app.delete("/post/:id", (req, res) => {
   res.send(`Received DELETE request for post #${id}`);
 });
 
+// ***** LIKE ROUTES *****
+app.post("/like/create", (req, res) => {
+  res.send(`Received POST request to create new like.`);
+});
+
+app.get("/likes/all", (_req, res) => {
+  // TODO add limiter (/all?limit=X) so this doesn't crash the site
+  res.send(`Received GET request to fetch all likes.`);
+});
+
+app.get("/like/:id", (req, res) => {
+  const id = req.params.id;
+  res.send(`Received GET request to fetch like #${id}.`);
+})
+
+app.put("/like/:id", (req, res) => {
+  const id = req.params.id;
+  res.send(`Received PUT request to update like #${id}.`);
+});
+
+app.delete("/like/:id", (req, res) => {
+  const id = req.params.id;
+  res.send(`Received DELETE request to delete like #${id}.`);
+});
+
 // Spin up the server
 app.listen(3000, () => {
   console.log("Listening on localhost:3000");
