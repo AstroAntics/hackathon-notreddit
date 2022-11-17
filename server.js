@@ -98,13 +98,13 @@ app.get("/posts/all", (_req, res) => {
 });
 
 // GET request - fetch post by ID
-app.get("/post/:id", (_req, res) => {
+app.get("/post/:id", (req, res) => {
   const id = req.params.id;
   res.send(`Received GET request to fetch post #${id}`);
 });
 
 // PUT request - update post by ID
-app.put("/post/:id", (_eq, res) => {
+app.put("/post/:id", (req, res) => {
   const id = req.params.id;
   res.send(`Received PUT request to update post #${id}`);
 });
