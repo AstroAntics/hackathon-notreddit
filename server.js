@@ -1,7 +1,21 @@
 const express = require("express");
 const app = express();
+require('dotenv').config()
+console.log(process.env) // remove this after you've confirmed it is working
 
 // TODO establish connection with Postgres db before spinning up the server
+const knex = require('knex')({
+  client: process.env.DB_CLIENT,
+  connection: {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
+  }
+});
+
+console.log(knex);
 
 // GET response to web root
 app.get("/", (_req, res) => {
@@ -116,7 +130,7 @@ app.delete("/post/:id", (req, res) => {
 });
 
 // ***** LIKE ROUTES *****
-app.post("/like/create", (req, res) => {
+app.post("/like/create", (_req, res) => {
   res.send(`Received POST request to create new like.`);
 });
 
