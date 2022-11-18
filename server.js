@@ -4,17 +4,13 @@ const app = express();
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const postgres = require("postgres");
+
 app.use(bodyParser.json());
 
 const knex = require("knex")({
   client: "pg",
   connection: process.env.PG_DB_URL,
 });
-
-const sql = postgres(process.env.PG_DB_URL)
-if (sql !== null) {
-  console.log("Connected!");
-}
 
 if (knex !== null) {
   console.log("Connected to database!");
@@ -26,19 +22,7 @@ app.get("/", (_req, res) => {
 });
 
 // Test response to fetch data from database
-app.get("/test", (_req, res) => {
-  knex.from("user").select("id")
-    .then((users) => {
-      return res.json(users);
-    })
-    .catch((err) => {
-      console.error(err);
-      return res.json({
-        success: false,
-        message: "An error occurred, please try again later.",
-      });
-    });
-});
+app.get("/test", (_req, _res) => {});
 
 // GET request to 404 page (intentional)
 app.get("/404", (_req, res) => {
