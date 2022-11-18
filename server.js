@@ -1,17 +1,31 @@
 const express = require("express");
+const Sequelize = require("sequelize");
 const app = express();
-require('dotenv').config()
+const ejs = require("ejs");
 
-const knex = require('knex')({
+const knex = require("knex")({
   client: process.env.DB_CLIENT,
   connection: {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
+    database: process.env.DB_DATABASE,
+  },
+});
+
+const sequelize = new Sequelize(process.env.PG_DB_URL); // Example for postgres
+async function connectToDatabase() {
+  try {
+    await sequelize.authenticate();
+    console.log(
+      `Connection to ${process.env.PG_DB_URL} has been established successfully.`
+    );
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
   }
-}); 
+}
+connectToDatabase();
 
 // GET response to web root
 app.get("/", (_req, res) => {
@@ -33,7 +47,7 @@ app.get("/403", (_req, res) => {
  * TODO move the separate groups into router files as organized
  */
 
-// ***** USER ROUTES ***** 
+// ***** USER ROUTES *****
 
 // POST request - create new user
 app.post("/user/create", (_req, res) => {
@@ -138,7 +152,7 @@ app.get("/likes/all", (_req, res) => {
 app.get("/like/:id", (req, res) => {
   const id = req.params.id;
   res.send(`Received GET request to fetch like #${id}.`);
-})
+});
 
 app.put("/like/:id", (req, res) => {
   const id = req.params.id;
