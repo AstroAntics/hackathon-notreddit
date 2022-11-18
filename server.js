@@ -2,34 +2,42 @@ const express = require("express");
 const Sequelize = require("sequelize");
 const app = express();
 const ejs = require("ejs");
+const bodyParser = require("body-parser");
+const postgres = require("postgres");
+app.use(bodyParser.json());
 
 const knex = require("knex")({
-  client: process.env.DB_CLIENT,
-  connection: {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-  },
+  client: "pg",
+  connection: process.env.PG_DB_URL,
 });
 
-const sequelize = new Sequelize(process.env.PG_DB_URL); // Example for postgres
-async function connectToDatabase() {
-  try {
-    await sequelize.authenticate();
-    console.log(
-      `Connection to ${process.env.PG_DB_URL} has been established successfully.`
-    );
-  } catch (error) {
-    console.error("Unable to connect to the database:", error);
-  }
+const sql = postgres(process.env.PG_DB_URL)
+if (sql !== null) {
+  console.log("Connected!");
 }
-connectToDatabase();
+
+if (knex !== null) {
+  console.log("Connected to database!");
+}
 
 // GET response to web root
 app.get("/", (_req, res) => {
   res.send("Hello, world!");
+});
+
+// Test response to fetch data from database
+app.get("/test", (_req, res) => {
+  knex.from("user").select("id")
+    .then((users) => {
+      return res.json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.json({
+        success: false,
+        message: "An error occurred, please try again later.",
+      });
+    });
 });
 
 // GET request to 404 page (intentional)
