@@ -6,23 +6,47 @@ const bodyParser = require("body-parser");
 const postgres = require("postgres");
 
 app.use(bodyParser.json());
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 const knex = require("knex")({
   client: "pg",
   connection: process.env.PG_DB_URL,
 });
 
-if (knex !== null) {
-  console.log("Connected to database!");
-}
+const sql = postgres(process.env.PG_DB_URL);
 
 // GET response to web root
 app.get("/", (_req, res) => {
-  res.send("Hello, world!");
+  res.render("pages/main_page");
+});
+
+// GET request to login page
+app.get("/login", (_req, res) => {
+  res.render("pages/login");
+});
+
+// GET request to registration page
+app.get("/register", (_req, res) => {
+    res.render("pages/register");
 });
 
 // Test response to fetch data from database
-app.get("/test", (_req, _res) => {});
+app.get("/test", (_req, res) => {
+  knex
+    .from("user")
+    .select("id")
+    .then((users) => {
+      return res.json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.json({
+        success: false,
+        message: "An error occurred, please try again later.",
+      });
+    });
+});
 
 // GET request to 404 page (intentional)
 app.get("/404", (_req, res) => {

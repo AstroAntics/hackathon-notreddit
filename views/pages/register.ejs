@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <title>NotReddit | Register</title>
+    <style>
+      html, body {
+        height: 100%;
+        text-transform: lowercase;
+      }
+
+      body {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #4be5fd;
+      }
+
+      .form-register {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+      }
+      .form-register .checkbox {
+        font-weight: 400;
+      }
+      .form-register .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+      }
+      .form-register .form-control:focus {
+        z-index: 2;
+      }
+      .form-register input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .form-register input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    </style>
+  </head>
+  <body class="text-center">
+    <form class="form-register">
+      <img
+        class="mb-4"
+        src="https://img.icons8.com/color/512/anchor.png"
+        alt=""
+        width="72"
+        height="72"
+      />
+      <h1 class="h1 mb-3 font-weight-normal">Welcome aboard!</h1>
+      <p id="pageBlurb"></p>
+      <label for="inputEmail" class="sr-only">username</label>
+      <input
+        type="text"
+        id="inputUsername"
+        class="form-control"
+        placeholder="username"
+        required=""
+        autofocus=""
+      />
+      <label for="inputPassword" class="sr-only">password</label>
+      <input
+        type="password"
+        id="inputPassword"
+        class="form-control"
+        placeholder="password"
+        required=""
+      />
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="tosAgree" /> i agree to the terms of service
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        register
+      </button>
+      <p class="mt-4">
+        <a href="/" style="color: black !important"
+          >nah, take me back fr fr 💀</a
+        >
+      </p>
+    </form>
+    <script>
+      let blurb = document.getElementById("pageBlurb");
+      let randomMessages = [
+        "Please join us! We've got free cookies!",
+        "It's totally free. No cap 💀.",
+        "It's 2022 already, we gotta use React sometime",
+        "no way bro really said ______________",
+        "Join 0 users and counting!",
+        "Like the Twitter that <del>never was</del> is dead.",
+        "Insert snarky quote from a popular media franchise here.",
+        "It ain't even Thanksgiving yet.",
+        "CAUTION: Database surgery required.",
+        "Insert pretentious in-joke here.",
+        "And isn't all social media the same?",
+        '"Mom, can we have Reddit at home?"\n "We have Reddit at home."\nReddit at home:\t',
+        'console.log("My name is Walter Harwell White.");',
+        "RIP marcode 2022 - 2022. \nCause of death: excess memes.",
+        "I just know that one of these will have a typo.",
+        "For the low, low price of $0.00, and 0 millicents!",
+        "CSS is a crime against humanity.",
+        "no comment",
+        "FTX is dead, long live FTX!",
+        "when I wake up, yeah I know I'm gonna be, I'm gonna be the man who wakes up next to you",
+        "please don't sue us, Reddit Inc.",
+        "I'd rather have my blood drawn fifty times than mess around with foreign keys again.",
+        "You can't parse [X]HTML with regex. Because HTML can't be parsed by regex. Regex is not a tool that can be used to correctly parse HTML. As I have answered in HTML-and-regex questions here so many times before, the use of regex will not allow you to consume HTML. Regular expressions are a tool that is insufficiently sophisticated to understand the constructs employed by HTML. HTML is not a regular language and hence cannot be parsed by regular expressions. Regex queries are not equipped to break down HTML into its meaningful parts. so many times but it is not getting to me. Even enhanced irregular regular expressions as used by Perl are not up to the task of parsing HTML. You will never make me crack. HTML is a language of sufficient complexity that it cannot be parsed by regular expressions. Even Jon Skeet cannot parse HTML using regular expressions. Every time you attempt to parse HTML with regular expressions, the unholy child weeps the blood of virgins, and Russian hackers pwn your webapp. Parsing HTML with regex summons tainted souls into the realm of the living. HTML and regex go together like love, marriage, and ritual infanticide. The <center> cannot hold it is too late. The force of regex and HTML together in the same conceptual space will destroy your mind like so much watery putty. If you parse HTML with regex you are giving in to Them and their blasphemous ways which doom us all to inhuman toil for the One whose Name cannot be expressed in the Basic Multilingual Plane, he comes. HTML-plus-regexp will liquify the n​erves of the sentient whilst you observe, your psyche withering in the onslaught of horror. Rege̿̔̉x-based HTML parsers are the cancer that is killing StackOverflow it is too late it is too late we cannot be saved the transgression of a chi͡ld ensures regex will consume all living tissue (except for HTML which it cannot, as previously prophesied) dear lord help us how can anyone survive this scourge using regex to parse HTML has doomed humanity to an eternity of dread torture and security holes using regex as a tool to process HTML establishes a breach between this world and the dread realm of c͒ͪo͛ͫrrupt entities (like SGML entities, but more corrupt) a mere glimpse of the world of reg​ex parsers for HTML will ins​tantly transport a programmer's consciousness into a world of ceaseless screaming, he comes, the pestilent slithy regex-infection wil​l devour your HT​ML parser, application and existence for all time like Visual Basic only worse he comes he comes do not fi​ght he com̡e̶s, ̕h̵i​s un̨ho͞ly radiańcé destro҉ying all enli̍̈́̂̈́ghtenment, HTML tags lea͠ki̧n͘g fr̶ǫm ̡yo​͟ur eye͢s̸ ̛l̕ik͏e liq​uid pain, the song of re̸gular exp​ression parsing will exti​nguish the voices of mor​tal man from the sp​here I can see it can you see ̲͚̖͔̙î̩́t̲͎̩̱͔́̋̀ it is beautiful t​he final snuffing of the lie​s of Man ALL IS LOŚ͖̩͇̗̪̏̈́T ALL I​S LOST the pon̷y he comes he c̶̮omes he comes the ich​or permeates all MY FACE MY FACE ᵒh god no NO NOO̼O​O NΘ stop the an​*̶͑̾̾​̅ͫ͏̙̤g͇̫͛͆̾ͫ̑͆l͖͉̗̩̳̟̍ͫͥͨe̠̅s ͎a̧͈͖r̽̾̈́͒͑e n​ot rè̑ͧ̌aͨl̘̝̙̃ͤ͂̾̆ ZA̡͊͠͝LGΌ ISͮ̂҉̯͈͕̹̘̱ TO͇̹̺ͅƝ̴ȳ̳ TH̘Ë͖́̉ ͠P̯͍̭O̚​N̐Y̡ H̸̡̪̯ͨ͊̽̅̾̎Ȩ̬̩̾͛ͪ̈́̀́͘ ̶̧̨̱̹̭̯ͧ̾ͬC̷̙̲̝͖ͭ̏ͥͮ͟Oͮ͏̮̪̝͍M̲̖͊̒ͪͩͬ̚̚͜Ȇ̴̟̟͙̞ͩ͌͝S̨̥̫͎̭ͯ̿̔̀ͅ",
+        "sing us a song, you're the piano man.",
+        "Constructive criticism is the engine of change.",
+        "Do you hear the people sing?...",
+        "Why are you the way that you are?",
+        "But if the world goes up in flames, I will still be watching...",
+        "happy 0th birthday, notreddit!",
+        "// sometimes i feel like my computer ignores all my comments",
+        "🤔",
+        "<del>this should be struck through why isn't it working</del>",
+        "ayo?"
+      ];
+      blurb.innerText =
+        randomMessages[Math.floor(Math.random() * randomMessages.length)];
+    </script>
+  </body>
+</html>
