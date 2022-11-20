@@ -28,7 +28,7 @@ const createUser = (req, res) => {
       if (err) {
         throw err;
       } else {
-        res.status(201).json(`User created.`);
+        res.status(201).json(result.rows);
       }
     });
 };
@@ -65,13 +65,13 @@ const getUserById = (req, res) => {
 const deleteUser = (req, res) => {
   const id = parseInt(req.params.id);
   pool.query(
-    'DELETE FROM public."user" WHERE user_id = $1',
+    'DELETE FROM public."user" WHERE user_id = $1 RETURNING *',
     [id],
     (err, results) => {
       if (error) {
         throw error;
       } else {
-        response.status(200).json({ message: "ok" });
+        res.status(200).json(results.rows);
       }
     }
   );
@@ -87,23 +87,10 @@ const createPost = (req, res) => {
     if (err) {
       throw err;
     } else {
-      res.status(200).json({"ok": 1});
+      res.status(201).json(result.rows);
     }
   });
-
 };
-
-/*
-pool.query(
-    "INSERT INTO public.\"user\" (user_id, username, password, avatar_url, bio, is_mod, is_deleted, created_at, updated_at)" +
-    "VALUES ($1, $2, $3, null, null, false, false, $4, $5) RETURNING *", [user_id, username, password, time, time], (err, result) => {
-      if (err) {
-        throw err;
-      } else {
-        res.status(201).json(`User created.`);
-      }
-    }); 
-*/
 
 const getAllPosts = (req, res) => {
   pool.query(
@@ -185,6 +172,7 @@ module.exports = {
   getAllUsers,
   getUserById,
   deleteUser,
+  createPost,
   getAllPosts,
   getPostById,
   deletePost,

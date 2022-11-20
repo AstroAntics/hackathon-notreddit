@@ -10,7 +10,7 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
-    <title>NotReddit</title>
+    <title>NotReddit | User Listing</title>
     <style>
         .navbar-brand {
             color: rgb(7 0 228 / 90%) !important;
@@ -114,6 +114,24 @@
         </ul>
       </div>
     </nav>
+    <div class="container">
+    <!-- Show users -->
+    <% if (users) { %>
+        <h2 class="mt-4">User Listing</h2>
+    <% } %>
+    <% users.forEach(function(user){ %>
+      <p>
+        <a href="/api/users/<%=user.user_id%>"><%= user.username %></a>
+        <% if (user.is_mod) { %>
+          <span style="color: darkred; font-weight: 600">admin</span>
+        <% } %>
+      </p>
+      <% if (user.bio) { %>
+      <p><%= user.bio %></p>
+      <% } %>
+      <p>Joined <%= user.created_at %></p>
+  <% }) %>
+    </div>
     <footer class="footer" id="pageFooter">
         <div class="container">
           <span class="text-muted" style="margin-left: 4.5em;">copyright © 2022 marcode <a href="github.com/AstroAntics/hackathon-notreddit">(source code)</a></span>

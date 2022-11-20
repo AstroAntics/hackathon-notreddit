@@ -26,6 +26,8 @@ app.get("/faq", renderStatic.showFaqPage);
 app.get("/search", renderStatic.showSearchPage);
 app.get("/rules", renderStatic.showRulesPage);
 app.get("/changelog", renderStatic.showChangelogPage);
+app.get("/users", renderStatic.showUsersPage);
+app.get("/posts", renderStatic.showPostsPage);
 
 // API ROUTES
 app.get("/api/users", db.getAllUsers);
@@ -33,6 +35,7 @@ app.get("/api/users/:id", db.getUserById);
 app.delete("/api/users/:id/delete", db.deleteUser);
 app.post("/api/createuser", db.createUser);
 app.get("/api/posts", db.getAllPosts);
+app.post("/api/posts/create", db.createPost);
 app.get("/api/post/:id", db.getPostById);
 app.delete("/api/post/:id/delete", db.deletePost);
 app.get("/api/dm/all", db.getAllDms);
