@@ -1,7 +1,7 @@
 /* <https://blog.logrocket.com/crud-rest-api-node-js-express-postgresql/> */
-
 const { Pool } = require("pg");
 const pool = new Pool({
+  // ! DEVELOPMENT PURPOSES ONLY. PULL KEYS FROM AN ENV FILE FOR PRODUCTION!!!
   user: "postgres",
   host: "localhost",
   database: "notreddit",
@@ -16,6 +16,7 @@ if (pool) {
 // USER QUERIES
 const createUser = (req, res) => {
   // <https://gist.github.com/jczaplew/f055788bf851d0840f50>
+  // TODO move this to a function
   const time = new Date(Date.now()+(1000*60*(-(new Date()).getTimezoneOffset()))).toISOString().replace('T',' ').replace('Z','');
   const { user_id, username, password } = req.body;
   /* this is disgusting
