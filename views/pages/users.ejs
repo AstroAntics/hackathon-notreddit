@@ -121,7 +121,7 @@
     <% } %>
     <% users.forEach(function(user){ %>
       <p>
-        <a href="/api/users/<%=user.user_id%>"><%= user.username %></a>
+        <a href="/user/<%=user.user_id%>"><%= user.username %></a>
         <% if (user.is_mod) { %>
           <span style="color: darkred; font-weight: 600">admin</span>
         <% } %>
@@ -129,7 +129,7 @@
       <% if (user.bio) { %>
       <p><%= user.bio %></p>
       <% } %>
-      <p>Joined <%= user.created_at %></p>
+      <p style="color: gray;">joined <%= user.created_at %></p>
   <% }) %>
     </div>
     <footer class="footer" id="pageFooter">

@@ -29,6 +29,24 @@ const showSearchPage = (_req, res) => {
   res.render("pages/search");
 };
 
+const showProfilePage = (req, res) => {
+  const id = parseInt(req.params.id);
+  let user;
+  axios.get(`http://localhost:3000/api/users/${id}`).then(function(response) {
+    user = response.data;
+    res.render("pages/profile", {user: user});
+  });
+}
+
+const showPostByIdPage = (req, res) => {
+  const id = parseInt(req.params.id);
+  let post;
+  axios.get(`http://localhost:3000/api/post/${id}`).then(function (response) {
+    post = response.data;
+    res.render("pages/post", {post: post});
+  });
+}
+
 const showUsersPage = (_req, res) => {
   let users;
   // Make a request for a user with a given ID
@@ -67,6 +85,8 @@ module.exports = {
   showRulesPage,
   showChangelogPage,
   showSearchPage,
+  showProfilePage,
+  showPostByIdPage,
   showUsersPage,
   showPostsPage
 };

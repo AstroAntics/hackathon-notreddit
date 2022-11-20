@@ -10,7 +10,7 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
-    <title>NotReddit | Post Listing</title>
+    <title>NotReddit | FAQ</title>
     <style>
         .navbar-brand {
             color: rgb(7 0 228 / 90%) !important;
@@ -25,7 +25,7 @@
         #pageFooter {
             display: grid;
             height: 5rem;
-            margin-top: 22rem;
+            margin-top: 22.6rem;
             justify-content: center;
             background: #9a9898;
             text-transform: lowercase;
@@ -115,18 +115,12 @@
       </div>
     </nav>
     <div class="container">
-    <!-- Show users -->
-    <% if (posts) { %>
-        <h2 class="mt-4">Post Listing</h2>
-    <% } %>
-    <% posts.forEach(function(post){ %>
-      <ul>
-        <li>
-          <a href="/post/<%=post.post_id%>">
-            <%= post.title %>
-          </a> by user #<a href="/user/<%=post.creator%>"><%=post.creator%></a>        </li>
-      </ul>
-  <% }) %>
+        <h2 class="mt-4">why is this page here?</h2>
+        <p>so that the page can render properly. sorry not sorry :)</p>
+        <h2 class="mt-4">will you have a proper faq?</h2>
+        <p>no</p>
+        <h2 class="mt-4">then how do i know what i can and can't do?</h2>
+        <p>look <a href="/rules">thisaway.</a></p>
     </div>
     <footer class="footer" id="pageFooter">
         <div class="container">

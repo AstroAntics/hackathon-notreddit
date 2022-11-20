@@ -10,7 +10,7 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
-    <title>NotReddit | Post Listing</title>
+    <title>NotReddit | Search</title>
     <style>
         .navbar-brand {
             color: rgb(7 0 228 / 90%) !important;
@@ -25,7 +25,7 @@
         #pageFooter {
             display: grid;
             height: 5rem;
-            margin-top: 22rem;
+            margin-top: 32.9rem;
             justify-content: center;
             background: #9a9898;
             text-transform: lowercase;
@@ -115,18 +115,10 @@
       </div>
     </nav>
     <div class="container">
-    <!-- Show users -->
-    <% if (posts) { %>
-        <h2 class="mt-4">Post Listing</h2>
-    <% } %>
-    <% posts.forEach(function(post){ %>
-      <ul>
-        <li>
-          <a href="/post/<%=post.post_id%>">
-            <%= post.title %>
-          </a> by user #<a href="/user/<%=post.creator%>"><%=post.creator%></a>        </li>
-      </ul>
-  <% }) %>
+        <h2 class="mt-4">oh noes!</h2>
+        <p>the search function <del>has been broken for 68 years</del> is currently offline due to 
+            <del>overworked programmers</del> problems with the database. we <del>don't care</del>
+            sincerely regret the inconvenience.</p>
     </div>
     <footer class="footer" id="pageFooter">
         <div class="container">

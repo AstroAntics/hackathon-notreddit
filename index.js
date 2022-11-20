@@ -27,7 +27,9 @@ app.get("/search", renderStatic.showSearchPage);
 app.get("/rules", renderStatic.showRulesPage);
 app.get("/changelog", renderStatic.showChangelogPage);
 app.get("/users", renderStatic.showUsersPage);
+app.get("/user/:id", renderStatic.showProfilePage);
 app.get("/posts", renderStatic.showPostsPage);
+app.get("/post/:id", renderStatic.showPostByIdPage);
 
 // API ROUTES
 app.get("/api/users", db.getAllUsers);

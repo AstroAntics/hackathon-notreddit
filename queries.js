@@ -48,7 +48,6 @@ const getAllUsers = (req, res) => {
 
 const getUserById = (req, res) => {
   const id = parseInt(req.params.id);
-  console.log(id);
   // in postgres the $ is the variable param and the [] are the optional params supplied
   pool.query(
     'SELECT * FROM public."user" WHERE user_id = $1', [id],
