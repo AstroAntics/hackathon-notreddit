@@ -31,6 +31,7 @@ app.get("/changelog", renderStatic.showChangelogPage);
 app.get("/api/users", db.getAllUsers);
 app.get("/api/users/:id", db.getUserById);
 app.delete("/api/users/:id/delete", db.deleteUser);
+app.post("/api/createuser", db.createUser);
 app.get("/api/posts", db.getAllPosts);
 app.get("/api/post/:id", db.getPostById);
 app.delete("/api/post/:id/delete", db.deletePost);
