@@ -1,6 +1,6 @@
 /* <https://blog.logrocket.com/crud-rest-api-node-js-express-postgresql/> */
 
-const pg = require("pg").Pool;
+const { Pool } = require("pg");
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
@@ -10,7 +10,7 @@ const pool = new Pool({
 });
 
 const getAllUsers = (req, res) => {
-  pool.query("SELECT * FROM user ORDER BY id ASC", (error, results) => {
+  pool.query("SELECT * FROM user", (error, results) => {
     if (error) {
       throw error;
     } else {
